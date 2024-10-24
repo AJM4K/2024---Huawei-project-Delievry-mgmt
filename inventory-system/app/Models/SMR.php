@@ -8,7 +8,7 @@ class SMR extends Model
 {
     public function po()
     {
-        return $this->belongsTo(PO::class);
+        return $this->belongsTo(PO::class, 'po_id');
     }
 
     public function items()

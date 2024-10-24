@@ -10,7 +10,7 @@ class POController extends Controller
     public function index()
     {
         // List all POs
-        // $pos = PO::all();
+        $pos = PO::all();
 
         return view('po.index', compact('pos'));
     }
@@ -18,23 +18,23 @@ class POController extends Controller
     public function show($po_id)
     {
         // Detail of specific PO
-      //  $po = PO::findOrFail($po_id);
+       $po = PO::findOrFail($po_id);
         return view('po.show', compact('po'));
     }
 
     public function listMAs($po_id)
     {
         // List all MAs related to the PO
-       // $po = PO::findOrFail($po_id);
-      //  $mas = $po->mas;  // Assuming relationship has been defined in the PO model
+       $po = PO::findOrFail($po_id);
+       $mas = $po->mas;  // Assuming relationship has been defined in the PO model
         return view('po.mas', compact('po', 'mas'));
     }
 
     public function listSMRs($po_id)
     {
         // List all SMRs related to the PO
-       // $po = PO::findOrFail($po_id);
-       // $smrs = $po->smrs;  // Assuming relationship has been defined in the PO model
+       $po = PO::findOrFail($po_id);
+       $smrs = $po->smrs;  // Assuming relationship has been defined in the PO model
         return view('po.smrs', compact('po', 'smrs'));
     }
 }

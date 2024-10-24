@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('item_smr', function (Blueprint $table) {
+        Schema::create('item_s_m_r', function (Blueprint $table) {
             $table->id();
         $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
-        $table->foreignId('smr_id')->constrained('s_m_r_s')->onDelete('cascade');
+        $table->foreignId('s_m_r_id')->constrained('s_m_r_s')->onDelete('cascade');
         $table->integer('quantity');
         $table->boolean('received')->default(false); // Indicates whether the item was received
         $table->timestamps();

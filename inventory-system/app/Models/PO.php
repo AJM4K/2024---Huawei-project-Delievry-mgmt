@@ -13,11 +13,11 @@ class PO extends Model
 
     public function mas()
     {
-        return $this->hasMany(MA::class);
+        return $this->hasMany(MA::class, 'po_id');
     }
 
     public function smrs()
     {
-        return $this->hasMany(SMR::class);
+        return $this->hasMany(SMR::class, 'po_id');
     }
 }

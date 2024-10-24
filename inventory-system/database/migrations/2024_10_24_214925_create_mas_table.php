@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('m_a_s', function (Blueprint $table) {
             $table->id();
         $table->string('ma_number');
-        $table->foreignId('po_id')->constrained('pos')->onDelete('cascade'); // Foreign key to po
+        $table->foreignId('po_id')->constrained('p_o_s')->onDelete('cascade'); // Foreign key to po
         $table->timestamps();
         });
     }
