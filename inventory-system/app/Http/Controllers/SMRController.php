@@ -32,4 +32,18 @@ class SMRController extends Controller
 
         return redirect()->back()->with('success', 'Voucher image uploaded successfully!');
     }
+
+    
+    public function import(Request $request)
+{
+    $request->validate([
+        'smr_file' => 'required|mimes:xlsx,xls,csv',
+    ]);
+
+    $file = $request->file('smr_file');
+    
+    // Add your logic to parse and import the file here (e.g., using Excel::import)
+
+    return redirect()->back()->with('success', 'smr data imported successfully!');
+}
 }

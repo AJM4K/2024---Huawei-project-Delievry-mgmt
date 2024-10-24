@@ -27,4 +27,20 @@
             </li>
         @endforeach
     </ul>
+<!-- 
+    <h2 class="text-xl font-bold mt-4">items under this PO</h2>
+    <ul class="list-disc pl-6">
+    @foreach($po->mas as $ma)
+                @foreach($ma->items as $item)
+                    <li class="mb-2">
+                        <strong>{{ $item->item_name }}</strong> 
+                        (Quantity: {{ $item->pivot->quantity }})
+                    </li>
+                @endforeach
+            @endforeach
+    </ul> -->
+
+
+   
+           
 @endsection

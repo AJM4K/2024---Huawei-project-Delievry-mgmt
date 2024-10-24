@@ -23,8 +23,13 @@
             </li>
         @endforeach
     </ul>
-    
-<form action="{{ route('smr.upload', $smr->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('smr.upload', $smr->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <label for="smr_file" class="block mb-2">Upload Voucher Image:</label>
+        <input type="file" name="voucher_image" id="voucher_image" accept="image/*" class="border p-2 mb-4">
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2">Upload Voucher</button>
+    </form>
+<!-- <form action="{{ route('smr.upload', $smr->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div>
         <label for="voucher_image">Upload Voucher Image:</label>
@@ -32,6 +37,6 @@
     </div>
     <button type="submit" class="px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Upload</button>
 </form>
-
+ -->
 
 @endsection
