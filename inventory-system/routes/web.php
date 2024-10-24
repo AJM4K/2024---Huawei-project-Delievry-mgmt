@@ -19,3 +19,4 @@ Route::get('/po/{po}/smr', [SMRController::class, 'index'])->name('po.smr.index'
 Route::get('/smr/{smr}', [SMRController::class, 'show'])->name('smr.show');
 Route::get('/ma/{ma}', [MAController::class, 'show'])->name('ma.show');
 
+Route::post('/smr/{id}/upload', [SMRController::class, 'uploadVoucher'])->name('smr.upload');
