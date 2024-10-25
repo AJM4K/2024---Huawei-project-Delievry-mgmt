@@ -4,25 +4,37 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
+    <div class="flex flex-col items-start mt-6">
+        <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- PO List Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h2 class="text-xl font-semibold mb-4">PO List</h2>
+                <p class="text-gray-600 mb-4">View all Purchase Orders</p>
+                <a href="{{ route('po.index') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">View PO List</a>
+            </div>
 
-    <div class="mb-6">
-        <h2 class="text-xl font-bold mb-2">Import MA</h2>
-        <form action="{{ route('ma.import') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label for="ma_file" class="block mb-2">Select MA Excel file:</label>
-            <input type="file" name="ma_file" id="ma_file" accept=".xlsx,.xls,.csv" class="border p-2 mb-4">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2">Upload MA</button>
-        </form>
-    </div>
+            <!-- Imports Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h2 class="text-xl font-semibold mb-4">Imports</h2>
+                <p class="text-gray-600 mb-4">Import data into the system</p>
+                <a href="{{ route('imports') }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Go to Imports</a>
+            </div>
 
-    <div>
-        <h2 class="text-xl font-bold mb-2">Import SMR</h2>
-        <form action="{{ route('smr.import') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label for="smr_file" class="block mb-2">Select SMR Excel file:</label>
-            <input type="file" name="smr_file" id="smr_file" accept=".xlsx,.xls,.csv" class="border p-2 mb-4">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2">Upload SMR</button>
-        </form>
+            <!-- MA Requests Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h2 class="text-xl font-semibold mb-4">MA Requests</h2>
+                <p class="text-gray-600 mb-4">View all MA Requests with search and pagination</p>
+                <a href="{{ route('ma.index') }}" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">View MA Requests</a>
+            </div>
+
+            <!-- SMR Requests Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <h2 class="text-xl font-semibold mb-4">SMR Requests</h2>
+                <p class="text-gray-600 mb-4">View all SMR Requests with search and pagination</p>
+                <a href="{{ route('smr.index') }}" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">View SMR Requests</a>
+            </div>
+        </div>
     </div>
 @endsection

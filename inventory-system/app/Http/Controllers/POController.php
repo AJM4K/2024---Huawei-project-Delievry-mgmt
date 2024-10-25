@@ -11,9 +11,22 @@ class POController extends Controller
     {
         // List all POs
        // $pos = PO::all();
-       $pos = PO::paginate(1);
+    //    $pos = PO::paginate(1);
 
-        return view('po.index', compact('pos'));
+    //     return view('po.index', compact('pos'));
+
+        // Get the search query
+        $search = request('search');
+
+        // Fetch POs based on search query with pagination
+        $pos = PO::when($search, function ($query, $search) {
+                    return $query->where('po_number', 'like', '%' . $search . '%');
+                })
+                ->paginate(10) // Adjust per page limit as needed
+                ->withQueryString(); // Keeps the search query in the pagination links
+    
+        return view('po.index', compact('pos', 'search'));
+    
     }
 
     public function show($po_id)
