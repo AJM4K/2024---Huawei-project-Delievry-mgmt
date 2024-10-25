@@ -1,11 +1,13 @@
 <?php
 
+use App\Exports\TestExport;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MAController;
 use App\Http\Controllers\POController;
 use App\Http\Controllers\SMRController;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
@@ -32,3 +34,8 @@ Route::delete('/smr/{id}/delete-voucher', [SMRController::class, 'deleteVoucher'
 
 Route::get('/smr/{smr}/item/{item}/edit', [ItemController::class, 'edit'])->name('item.edit');
 Route::post('/smr/{smr}/item/{item}/update', [ItemController::class, 'update'])->name('item.update');
+
+Route::get('test/export', function() {
+    
+    return  Excel::download(new TestExport, 'test.xlsx');
+});
