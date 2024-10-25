@@ -14,4 +14,8 @@
             </li>
         @endforeach
     </ul>
+    <!-- Pagination Links -->
+    <div class=" mt-4">
+        {{ $pos->links() }}
+    </div>
 @endsection

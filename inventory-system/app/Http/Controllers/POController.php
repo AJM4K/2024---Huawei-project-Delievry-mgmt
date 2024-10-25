@@ -10,7 +10,8 @@ class POController extends Controller
     public function index()
     {
         // List all POs
-        $pos = PO::all();
+       // $pos = PO::all();
+       $pos = PO::paginate(1);
 
         return view('po.index', compact('pos'));
     }

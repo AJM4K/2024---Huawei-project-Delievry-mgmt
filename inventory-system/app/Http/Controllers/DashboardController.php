@@ -8,4 +8,10 @@ class DashboardController extends Controller
         // Fetch relevant data for the dashboard
         return view('dashboard');
     }
+
+    public function imports()
+    {
+        // Fetch relevant data for the dashboard
+        return view('imports');
+    }
 }
