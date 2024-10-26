@@ -14,6 +14,11 @@
         <div class="container mx-auto">
             <a href="{{ route('dashboard') }}" class="text-xl font-bold">Dashboard</a>
             <a href="{{ route('po.index') }}" class="ml-4">PO List</a>
+             <!-- Import Section -->
+             <a href="{{ route('imports') }}" class="ml-4 ">Imports</a>
+            
+            <!-- SMR Section -->
+            <a href="{{ route('smr.index') }}" class="ml-4 ">SMR Requests</a>
         </div>
     </nav>
     
