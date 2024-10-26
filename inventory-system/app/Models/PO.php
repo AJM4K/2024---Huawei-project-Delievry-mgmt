@@ -20,4 +20,11 @@ class PO extends Model
     {
         return $this->hasMany(SMR::class, 'po_id');
     }
+
+    public function allItemsReceived()
+{
+    return $this->smrs->every(function ($smr) {
+        return $smr->allItemsReceived();
+    });
+}
 }

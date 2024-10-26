@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MA extends Model
 {
@@ -15,4 +16,5 @@ class MA extends Model
     {
         return $this->belongsToMany(Item::class)->withPivot('quantity');
     }
+
 }

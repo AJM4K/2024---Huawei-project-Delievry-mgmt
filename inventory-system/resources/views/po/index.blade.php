@@ -18,7 +18,7 @@
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Search</button>
     </form>
 
-    <ul class="list-disc pl-6">
+    <!-- <ul class="list-disc pl-6">
         @forelse($pos as $po)
             <li>
                 <a href="{{ route('po.show', $po->id) }}" class="text-blue-500 hover:underline">{{ $po->po_number }}</a>
@@ -26,7 +26,28 @@
         @empty
             <li>No POs found.</li>
         @endforelse
-    </ul>
+    </ul> -->
+
+
+    <!-- PO Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        @foreach($pos as $po)
+     
+            <div class="bg-white shadow-md rounded-lg p-4">
+                    <!-- Status Indicator Circle -->
+         <div class="w-4 h-4 rounded-full mr-2
+                        @if ($po->allItemsReceived()) bg-green-400 @else bg-yellow-400 @endif">
+</div>
+                <h2 class="text-xl font-semibold mb-2">PO Number: {{ $po->po_number }}</h2>
+              
+
+                <div class="mt-4 flex justify-between items-center">
+                    <a href="{{ route('po.show', $po->id) }}" class="text-blue-500 hover:underline">View Details</a>
+                    
+                </div>
+            </div>
+        @endforeach
+    </div>
 
     <!-- Pagination Links -->
     <div class="mt-4">
