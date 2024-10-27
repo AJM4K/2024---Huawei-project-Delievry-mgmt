@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Dashboard')</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMkzf6mD/vZlVbNx0VzP9vIeeV1sf4m1/8Az2EX" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMkzf6mD/vZlVbNx0VzP9vIeeV1sf4m1/8Az2EX" crossorigin="anonymous"> -->
 
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+  @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
     <nav class="bg-white shadow p-4">
@@ -15,7 +16,7 @@
             <a href="{{ route('dashboard') }}" class="text-xl font-bold">Dashboard</a>
             <a href="{{ route('po.index') }}" class="ml-4">PO List</a>
              <!-- Import Section -->
-             <a href="{{ route('imports') }}" class="ml-4 ">Imports</a>
+             <a href="{{ route('imports') }}" class="ml-4">Imports</a>
             
             <!-- SMR Section -->
             <a href="{{ route('smr.index') }}" class="ml-4 ">SMR Requests</a>
