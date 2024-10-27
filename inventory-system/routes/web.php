@@ -23,6 +23,7 @@ Route::get('/smr/{smr}', [SMRController::class, 'show'])->name('smr.show');
 Route::get('/ma/{ma}', [MAController::class, 'show'])->name('ma.show');
 
 Route::post('/smr/{id}/upload', [SMRController::class, 'uploadVoucher'])->name('smr.upload');
+
 Route::post('/ma/import', [MAController::class, 'import'])->name('ma.import');
 Route::post('/smr/import', [SMRController::class, 'import'])->name('smr.import');
 Route::get('/imports', [DashboardController::class, 'imports'])->name('imports');

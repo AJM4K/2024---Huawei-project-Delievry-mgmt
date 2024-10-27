@@ -14,7 +14,8 @@ class MA extends Model
 
     public function items()
     {
-        return $this->belongsToMany(Item::class)->withPivot('quantity');
+        return $this->belongsToMany(Item::class, 
+        'm_a_s', 'm_a_id')->withPivot('quantity');
     }
 
 }

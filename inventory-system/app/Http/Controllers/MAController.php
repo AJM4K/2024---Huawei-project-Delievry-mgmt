@@ -43,8 +43,13 @@ class MAController extends Controller
         $import = new MAImport;
         Excel::import($import, $request->file('ma_file'));
 
+        $test_result = [
+            'po' => $import->po_number,
+            'ma' => $import->ma_number
+        ];
+
        // $result =  Excel::import(new MAImport, $request->file('ma_file'));
-       dd($import->data);
+       dd($import);
        return redirect()->back()->with('success', $import);
     }
 }

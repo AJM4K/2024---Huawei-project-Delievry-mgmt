@@ -22,10 +22,7 @@
             @foreach($po->mas as $ma)
                 <div class="p-4 border border-gray-200 rounded-md">
                     <h3 class="text-lg font-semibold"><a href="{{ route('ma.show', $ma->id) }}" class="text-blue-500 hover:underline">{{ $ma->ma_number }}</a></h3>
-                    <p><strong>Number of Items:</strong> {{ DB::table('item_m_a')
-    ->where('m_a_id', $ma->id)
-    ->sum('quantity')
- }}</p>
+           
                 </div>
             @endforeach
         </div>

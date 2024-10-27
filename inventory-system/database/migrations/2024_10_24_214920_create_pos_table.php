@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('p_o_s', function (Blueprint $table) {
             $table->id();
-            $table->string('po_number');
-            $table->foreignId('warehouse_id')->constrained()->onDelete('cascade'); // Foreign key to warehouse
+            $table->string('po_number')->unique();
             $table->timestamps();
         });
     }

@@ -21,6 +21,16 @@
             <!-- SMR Section -->
             <a href="{{ route('smr.index') }}" class="ml-4 ">SMR Requests</a>
         </div>
+        @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     </nav>
     
     <div class="container mx-auto mt-6">

@@ -8,17 +8,14 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     */ 
-
+     */
     public function up(): void
     {
-        Schema::create('item_m_a', function (Blueprint $table) {
-           
+        Schema::create('voucher_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('m_a_id')->constrained('m_a_s')->onDelete('cascade');
+            $table->foreignId('voucher_id')->constrained('vouchers')->onDelete('cascade');
             $table->foreignId('item_id')->constrained('items')->onDelete('cascade');
-            $table->integer('quantity');
-            $table->string('serial_number')->nullable();
+            $table->integer('quantity_out');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('item_ma');
+        Schema::dropIfExists('voucher_items');
     }
 };

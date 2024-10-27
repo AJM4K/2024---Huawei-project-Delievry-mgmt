@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('s_m_r_s', function (Blueprint $table) {
-            $table->string('voucher_image')->nullable(); 
+        Schema::create('vouchers', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('smr_id')->constrained('s_m_r_s')->onDelete('cascade');
+            $table->string('image_path'); // Assuming images are stored as file paths
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('smrs', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('vouchers');
     }
 };

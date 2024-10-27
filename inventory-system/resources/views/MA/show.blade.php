@@ -10,8 +10,6 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <p><strong>MA Number:</strong> {{ $ma->ma_number }}</p>
             <p><strong>PO Number:</strong> <a href="{{ route('po.show', $ma->po->id) }}" class="text-blue-500 hover:underline">{{ $ma->po->po_number }}</a></p>
-            <p><strong>Warehouse:</strong> {{ $ma->po->warehouse->name }}</p>
-            <p><strong>Status:</strong> {{ $ma->status }}</p>
             <!-- Add more fields if needed -->
         </div>
     </div>
@@ -32,7 +30,7 @@
                 <tbody>
                     @foreach($ma->items as $item)
                         <tr class="hover:bg-gray-50">
-                            <td class="py-2 px-4 border-b">{{ $item->item_name }}</td>
+                            <td class="py-2 px-4 border-b">{{ $item->item_number }}</td>
                             <td class="py-2 px-4 border-b">{{ $item->pivot->quantity }}</td>
                             
                             <td class="py-2 px-4 border-b">{{ $item->description }}</td>

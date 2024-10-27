@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('s_m_r_s', function (Blueprint $table) {
-            $table->id();
-        $table->string('smr_number');
-        $table->foreignId('po_id')->constrained('p_o_s')->onDelete('cascade'); // Foreign key to po
-        $table->timestamps();
+           
+        $table->id();
+            $table->string('smr_number')->unique();
+            $table->foreignId('po_id')->constrained('p_o_s')->onDelete('cascade');
+            $table->string('site_code');
+            $table->string('snd_person');
+            $table->text('comments')->nullable();
+            $table->timestamps();
         });
     }
 
